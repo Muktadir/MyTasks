@@ -1,4 +1,13 @@
 MyTasks::Application.routes.draw do
+  resources :personal_infos
+
+  resources :tasks
+
+  devise_for :users
+
+  root :to => "home#index"
+
+  resources :tasks
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

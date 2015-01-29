@@ -1,0 +1,35 @@
+<h1>Listing personal_infos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Date of birth</th>
+      <th>Gender</th>
+      <th>User</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @personal_infos.each do |personal_info| %>
+      <tr>
+        <td><%= personal_info.first_name %></td>
+        <td><%= personal_info.last_name %></td>
+        <td><%= personal_info.date_of_birth %></td>
+        <td><%= personal_info.gender %></td>
+        <td><%= personal_info.user %></td>
+        <td><%= link_to 'Show', personal_info %></td>
+        <td><%= link_to 'Edit', edit_personal_info_path(personal_info) %></td>
+        <td><%= link_to 'Destroy', personal_info, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Personal info', new_personal_info_path %>

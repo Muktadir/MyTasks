@@ -1,0 +1,9 @@
+<h1>Add New task</h1>
+
+<%= form_for @task, :url => tasks_path(@task) do |f| %>
+
+    <%= f.label "Task Name" %>: <%= f.text_field :name %>
+    <%= f.hidden_field :done, :value => false %>
+    <%= f.submit "Add to list" %>
+
+<% end %>

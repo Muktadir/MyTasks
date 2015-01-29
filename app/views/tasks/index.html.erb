@@ -1,0 +1,23 @@
+<h1>Listing tasks</h1>
+
+<h2>My Tasks ToDo</h2>
+<% @tasks_to_do.each do |task| %>
+    <p>
+      <div class="tasks">
+        <p style="padding: 30px 0px 0px 20px"><%= task.name %></p>
+      </div>
+
+      <%= link_to image_tag("done.png", :title => 'Mark as Done', :class => 'controller_images'), task_path(task), :method => :put  %>
+    </p>
+<% end %>
+
+<p><%= link_to image_tag("new.png", :title => 'Add New Task', :class =>  'controller_images'), new_task_path %></p>
+
+<h2>Completed Tasks</h2>
+<% @tasks_done.each do |task| %>
+    <p>
+      <%= task.name %>
+      <%= link_to image_tag("delete.png", :title => 'Delete Task', :class => 'controller_images'), task, :confirm => "Are you sure to delete this task?", :method => :delete  %>
+    </p>
+<% end %>
+
