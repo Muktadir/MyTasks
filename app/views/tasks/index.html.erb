@@ -1,23 +1,59 @@
-<h1>Listing tasks</h1>
 
-<h2>My Tasks ToDo</h2>
-<% @tasks_to_do.each do |task| %>
-    <p>
-      <div class="tasks">
-        <p style="padding: 30px 0px 0px 20px"><%= task.name %></p>
+<div class="row-fluid">
+    <div class="span6">
+      <div class="row-fluid">
+        <div class="span3"></div>
+        <div class="span6">
+          <h2>My Tasks ToDo</h2>
+        </div>
+        <div class="span3"></div>
       </div>
 
-      <%= link_to image_tag("done.png", :title => 'Mark as Done', :class => 'controller_images'), task_path(task), :method => :put  %>
-    </p>
-<% end %>
+      <% @tasks_to_do.each do |task| %>
+          <div class="row-fluid">
+            <div class="span3"></div>
+            <div class="span4">
+              <div class="tasks">
+                <p style="padding: 30px 0px 0px 20px"><%= task.name %></p>
+              </div>
+            </div>
+            <div class="span3">
+              <%= link_to image_tag("done.png", :title => 'Mark as Done', :class => 'controller_images'), task_path(task), :method => :put  %>
+            </div>
+            <div class="span2"></div>
+          </div>
+      <% end %>
 
-<p><%= link_to image_tag("new.png", :title => 'Add New Task', :class =>  'controller_images'), new_task_path %></p>
+      <p><%= link_to image_tag("new.png", :title => 'Add New Task', :class =>  'controller_images'), new_task_path %></p>
 
-<h2>Completed Tasks</h2>
-<% @tasks_done.each do |task| %>
-    <p>
-      <%= task.name %>
-      <%= link_to image_tag("delete.png", :title => 'Delete Task', :class => 'controller_images'), task, :confirm => "Are you sure to delete this task?", :method => :delete  %>
-    </p>
-<% end %>
+    </div>
+
+    <div class="span6">
+      <div class="row-fluid">
+        <div class="span3"></div>
+        <div class="span6">
+          <h2>Completed Tasks</h2>
+        </div>
+        <div class="span3"></div>
+      </div>
+
+      <% @tasks_done.each do |done_task| %>
+
+          <div class="row-fluid">
+            <div class="span3"></div>
+            <div class="span4">
+              <div class="tasks">
+                <p style="padding: 30px 0px 0px 20px"><%= done_task.name %></p>
+              </div>
+            </div>
+            <div class="span3">
+              <%= link_to image_tag("delete.png", :title => 'Delete Task', :class => 'controller_images'), done_task, :confirm => "Are you sure to delete this task?", :method => :delete  %>
+            </div>
+            <div class="span2"></div>
+          </div>
+      <% end %>
+
+    </div>
+
+</div>
 
