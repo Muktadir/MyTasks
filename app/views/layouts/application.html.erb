@@ -40,8 +40,13 @@
 </div>
 
 
-<div class="my-alert alert-success notify">
-   <script>$.notify(notice,"success")</script>
+<div>
+   <script type="text/javascript">
+     $(function(){
+        var notice = "<%= flash[:notice] %>"
+         $.notify(notice, "success");
+     })
+   </script>
 </div>
 
 
