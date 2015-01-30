@@ -5,6 +5,7 @@ class TasksController < ApplicationController
   respond_to :html
 
   def index
+    @task = Task.new
     @tasks_to_do = Task.where(done: false)
     @tasks_done = Task.where(done: true)
 
@@ -24,6 +25,7 @@ class TasksController < ApplicationController
     @task = Task.new(task_params)
     if @task.save
       redirect_to tasks_path, :notice => "Your new Task is added successfully!"
+
     else
       render "new"
     end
@@ -54,6 +56,7 @@ class TasksController < ApplicationController
     end
 
     def task_params
+
       params.require(:task).permit(:name, :done)
     end
 end
