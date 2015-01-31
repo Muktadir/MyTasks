@@ -23,11 +23,14 @@ class TasksController < ApplicationController
 
   def create
     @task = Task.new(task_params)
+    if @task.name.empty?
+      redirect_to tasks_path, :alert => "Please give a name of your Task!"
+    end
     if @task.save
       redirect_to tasks_path, :notice => "Your new Task is added successfully!"
 
     else
-      render "new"
+      # render "new"
     end
   end
 

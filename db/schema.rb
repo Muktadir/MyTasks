@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 20150123205318) do
   add_index "personal_infos", ["user_id"], name: "index_personal_infos_on_user_id"
 
   create_table "tasks", force: true do |t|
-    t.string   "name"
+    t.string   "name",                   default: ""
     t.boolean  "done"
     t.datetime "created_at"
     t.datetime "updated_at"

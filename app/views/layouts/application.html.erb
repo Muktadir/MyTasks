@@ -30,7 +30,7 @@
           <p class="p-header">Not you?  <b><%= link_to "Sign out", destroy_user_session_path, :method => :delete, :class => 'btn btn-default' %></b></P>
 
       <% else %>
-          
+
 
       <% end %>
     </div>
@@ -43,9 +43,15 @@
 <div>
    <script type="text/javascript">
      $(function(){
-        var notice = "<%= flash[:notice] %>"
+         var notice = "<%= flash[:notice] %>"
          $.notify(notice, "success");
+     });
+
+     $(function(){
+         var notice = "<%= flash[:alert] %>"
+         $.notify(notice, "error");
      })
+
    </script>
 </div>
 
