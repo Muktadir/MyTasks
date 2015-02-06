@@ -1,5 +1,5 @@
 <%- if controller_name != 'sessions' %>
-  Already have an account? Then <%= link_to "Sign in", root_path(resource_name), :style => "font-size: 24px; text-decoration: none" %><br />
+  Already have an account? Then <b><%= link_to "Sign in", root_path(resource_name), :style => "font-size: 24px; text-decoration: none" %></b><br />
 <% end -%>
 
 <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
