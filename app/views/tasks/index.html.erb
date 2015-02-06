@@ -7,6 +7,7 @@
 
         <%= f.text_field :name, autofocus: true, :placeholder => "Add New Tasks", :style => "width: 450px" %>
         <%= f.hidden_field :done, :value => false %>
+        <%= f.hidden_field :email, :value => current_user.email %>
 
         <%= f.submit "new task", :type => :image, :src => "assets/new.png", :class => 'controller_images', :style => "margin: -8px 0px 0px 10px;" %>
 

@@ -6,8 +6,8 @@ class TasksController < ApplicationController
 
   def index
     @task = Task.new
-    @tasks_to_do = Task.where(done: false)
-    @tasks_done = Task.where(done: true)
+    @tasks_to_do = Task.where(:email => current_user.email, :done => false).order(:created_at => :desc)
+    @tasks_done = Task.where(:email => current_user.email, :done => true).order(:updated_at => :desc)
 
   end
 
@@ -28,9 +28,6 @@ class TasksController < ApplicationController
     end
     if @task.save
       redirect_to tasks_path, :notice => "Your new Task is added successfully!"
-
-    else
-      # render "new"
     end
   end
 
@@ -60,6 +57,6 @@ class TasksController < ApplicationController
 
     def task_params
 
-      params.require(:task).permit(:name, :done)
+      params.require(:task).permit(:name, :done, :email)
     end
 end
